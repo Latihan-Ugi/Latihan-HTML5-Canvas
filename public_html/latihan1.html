@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Latihan1</title>
+</head>
+<body>
+    
+    <canvas id="canvas" width="400" height="400"></canvas>
+    
+    <script src="js/jquery-2.0.2.min.js"></script>
+    <script>
+        $('document').ready(function(){
+            var canvas = $("#canvas")[0];
+            var ctx = canvas.getContext("2d");
+            
+            buatGambar();
+
+            function buatGambar(){
+                ctx.strokeStyle = '#00f';
+                ctx.lineWidth = 10;
+                ctx.lineJoin = 'bevel';
+                ctx.lineCap = 'butt';
+
+                ctx.beginPath();
+                ctx.moveTo(100,100);
+                ctx.lineTo(200,100);
+                ctx.lineTo(300,200);
+                ctx.lineTo(100,300);
+                ctx.stroke();
+                ctx.closePath();
+            }
+        });
+    </script>
+</body>
+</html>
