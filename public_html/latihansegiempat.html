@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Latihan Garis</title>
+    <title>Latihan Segiempat</title>
 </head>
 <body>
     
@@ -20,18 +20,17 @@
             buatGambar();
 
             function buatGambar(){
-                ctx.strokeStyle = '#00f';
-                ctx.lineWidth = 10;
-                ctx.lineJoin = 'bevel';
-                ctx.lineCap = 'butt';
+                ctx.fillStyle = '#f00'; // Warna Merah
+                ctx.strokeStyle = '#00f'; // Warna Biru
+                ctx.lineWidth = 5;
 
-                ctx.beginPath();
-                ctx.moveTo(100,100);
-                ctx.lineTo(200,100);
-                ctx.lineTo(300,200);
-                ctx.lineTo(100,300);
+                ctx.fillRect(100,100,150,100);
+                ctx.strokeRect(150,120,150,100);
+                ctx.clearRect(120,130,100,50);
+
+                ctx.rect(100,250,200,100);
+                ctx.fill();
                 ctx.stroke();
-                ctx.closePath();
             }
         });
     </script>
