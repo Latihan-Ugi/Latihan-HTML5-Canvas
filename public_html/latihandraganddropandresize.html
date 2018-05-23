@@ -18,7 +18,21 @@
         <script src="js/MoveAndResizeTool.js"></script>
         <script>
             $('document').ready(function(){
-                WrapWithMoveAndResizeTool("#canvas");
+                // WrapWithMoveAndResizeTool("#canvas");
+                var onclick = false;
+                if(onclick === false){
+                    $('#canvas').click(function(){
+                        WrapWithMoveAndResizeTool("#canvas");
+                        onclick = true;
+                    })
+                }
+                if(onclick === true){
+                    $('#canvas').click(function(){
+                        onclick = false;
+                        // WrapWithMoveAndResizeTool("#canvas");
+                        console.log(onclick);
+                    })
+                }
             });
         </script>
 </body>
