@@ -18,7 +18,7 @@
         .menu-editor {
             margin-top: 15px;
         }
-        .row {
+        .tambah-text-row, .ganti-produk-row {
             margin-top: 15px;
         }
         .preview-warna {
@@ -47,6 +47,8 @@
             </div>
             <div class="col-7 editor border border-primary">
                 <div class="menu-editor">
+
+                    <!-- Tabs Menu Editor -->
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="tambahkekeranjang-tab" data-toggle="tab" href="#tambahkekeranjang" role="tab" aria-controls="tambahkekeranjang" aria-selected="true">
@@ -79,19 +81,23 @@
 
                         <!-- Ganti Produk -->
                         <div class="tab-pane fade" id="gantiproduk" role="tabpanel" aria-labelledby="gantiproduk-tab">
-                            Ganti Produk
+                            <div class="row ganti-produk-row">
+                                <div class="col">
+
+                                </div>
+                            </div> 
                         </div>
                         
                         <!-- Tambah Text -->
                         <div class="tab-pane fade" id="tambahtext" role="tabpanel" aria-labelledby="tambahtext-tab">
-                            <div class="row">
+                            <div class="row tambah-text-row">
                                 <div class="col-12">
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="addtext" placeholder="Text.."/>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row tambah-text-row">
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Kategori Font :</label>  
@@ -138,6 +144,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
     <script src="js/color-picker/color-picker.min.js"></script>
+    
     <script>
         // var picker = new CP(document.getElementById("color-picker"));
         var picker_font = new CP(document.getElementById("warna-font"));
@@ -150,6 +157,7 @@
             $("#warna-font").css({"background":"#" +color});
         });
     </script>
+
     <script>
         $('document').ready(function(){
             var canvas = $("#canvas")[0];
