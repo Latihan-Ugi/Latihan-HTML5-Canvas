@@ -15,7 +15,14 @@
             min-height: 400px;
             margin: 15px 2px 15px 2px;
         }
+        .menu-editor {
+            margin-top: 15px;
+        }
+        .row {
+            margin-top: 15px;
+        }
     </style>
+    <link rel="stylesheet" href="js/color-picker/color-picker.min.css">
 </head>
 <body>
     <div class="parent">
@@ -27,7 +34,7 @@
                 </div>
             </div>
             <div class="col-7 editor border border-primary">
-                <div>
+                <div class="menu-editor">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="tambahkekeranjang-tab" data-toggle="tab" href="#tambahkekeranjang" role="tab" aria-controls="tambahkekeranjang" aria-selected="true">
@@ -59,7 +66,40 @@
                             Ganti Produk
                         </div>
                         <div class="tab-pane fade" id="tambahtext" role="tabpanel" aria-labelledby="tambahtext-tab">
-                            Tambah Text
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="addtext" placeholder="Text.."/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Kategori Font :</label>  
+                                        <select class="form-control">
+                                            <option>Kategori Font</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Warna Font :</label>  
+                                        <select class="form-control">
+                                            <option>Pilih Font..</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label>Warna Font :</label>
+                                    <input placeholder="Warna Font" class="form-control" type="text" id="color-picker" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="button" class="btn btn-primary col">Tambah</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="tambahgambar" role="tabpanel" aria-labelledby="tambahgambar-tab">
                             Tambah Gambar
@@ -76,6 +116,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
+    <script src="js/color-picker/color-picker.min.js"></script>
+    <script>
+        var picker = new CP(document.getElementById("color-picker"));
+        picker.on("change", function(color) {
+            this.target.value = '#' + color;
+        });
+    </script>
     <script>
         $('document').ready(function(){
             var canvas = $("#canvas")[0];
