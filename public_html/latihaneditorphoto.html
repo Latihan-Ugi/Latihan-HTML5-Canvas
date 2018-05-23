@@ -7,39 +7,63 @@
     <title>Latihan Editor Photo</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <style>
-        .editor {
+        .parent {
+            overflow-x: hidden;
+            margin-left:50px;
+        }
+        .editor, .image {
             min-height: 400px;
-            margin: 15px;
+            margin: 15px 2px 15px 2px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="parent">
         <div class="row">
-            <div class="col editor border border-primary">
+            <div class="col-md-auto image">
                 <div id="wrap-canvas">
                     <img src="images/aqXeYGBKQnW6BDa2WQ2n.png" style="height: auto; width: 450px;">
                     <canvas id="canvas" style="z-index: 9999 !important;position: relative;position: absolute;top:60px;left:135px;width: 195px;height: 280px;"></canvas>
                 </div>
             </div>
-            <div class="col editor border border-primary">
+            <div class="col-7 editor border border-primary">
                 <div>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                            <a class="nav-link active" id="tambahkekeranjang-tab" data-toggle="tab" href="#tambahkekeranjang" role="tab" aria-controls="tambahkekeranjang" aria-selected="true">
+                                Tambah Ke Keranjang
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                            <a class="nav-link" id="gantiproduk-tab" data-toggle="tab" href="#gantiproduk" role="tab" aria-controls="gantiproduk" aria-selected="true">
+                                Ganti Produk
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                            <a class="nav-link" id="tambahtext-tab" data-toggle="tab" href="#tambahtext" role="tab" aria-controls="tambahtext" aria-selected="false">
+                                Tambah Text
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tambahgambar-tab" data-toggle="tab" href="#tambahgambar" role="tab" aria-controls="tambahgambar" aria-selected="false">
+                                Tambah Gambar
+                            </a>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                        <div class="tab-pane fade show active" id="tambahkekeranjang" role="tabpanel" aria-labelledby="tambahkekeranjang-tab">
+                            Tambah Ke Keranjang
+                        </div>
+                        <div class="tab-pane fade" id="gantiproduk" role="tabpanel" aria-labelledby="gantiproduk-tab">
+                            Ganti Produk
+                        </div>
+                        <div class="tab-pane fade" id="tambahtext" role="tabpanel" aria-labelledby="tambahtext-tab">
+                            Tambah Text
+                        </div>
+                        <div class="tab-pane fade" id="tambahgambar" role="tabpanel" aria-labelledby="tambahgambar-tab">
+                            Tambah Gambar
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,9 +82,9 @@
             var ctx = canvas.getContext("2d");
 
             init();
+
             function init() {
                 
-                ctx.fillStyle = '#f00'; // Warna Merah
                 ctx.strokeStyle = '#00f'; // Warna Biru
                 ctx.lineWidth = 5;
 
