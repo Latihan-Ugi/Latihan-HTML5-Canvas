@@ -21,6 +21,18 @@
         .row {
             margin-top: 15px;
         }
+        .preview-warna {
+            float:right;
+            margin-right: 100px;
+            width: 30px;
+            height: 30px;
+            background: #ff0000;
+            margin-bottom: 3px;
+            border:1px solid #000;
+        }
+        .preview-warna:hover {
+            cursor: pointer;
+        }
     </style>
     <link rel="stylesheet" href="js/color-picker/color-picker.min.css">
 </head>
@@ -59,12 +71,18 @@
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
+
+                        <!-- Tambah Ke Keranjang -->
                         <div class="tab-pane fade show active" id="tambahkekeranjang" role="tabpanel" aria-labelledby="tambahkekeranjang-tab">
                             Tambah Ke Keranjang
                         </div>
+
+                        <!-- Ganti Produk -->
                         <div class="tab-pane fade" id="gantiproduk" role="tabpanel" aria-labelledby="gantiproduk-tab">
                             Ganti Produk
                         </div>
+                        
+                        <!-- Tambah Text -->
                         <div class="tab-pane fade" id="tambahtext" role="tabpanel" aria-labelledby="tambahtext-tab">
                             <div class="row">
                                 <div class="col-12">
@@ -91,7 +109,8 @@
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <label>Warna Font :</label>
+                                    <label class="left">Warna Font :</label>
+                                    <div class="preview-warna right" id="warna-font"></div>
                                     <input placeholder="Warna Font" class="form-control" type="text" id="color-picker" readonly>
                                 </div>
                             </div>
@@ -101,6 +120,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Tambah Gambar -->
                         <div class="tab-pane fade" id="tambahgambar" role="tabpanel" aria-labelledby="tambahgambar-tab">
                             Tambah Gambar
                         </div>
@@ -118,9 +139,15 @@
 
     <script src="js/color-picker/color-picker.min.js"></script>
     <script>
-        var picker = new CP(document.getElementById("color-picker"));
-        picker.on("change", function(color) {
-            this.target.value = '#' + color;
+        // var picker = new CP(document.getElementById("color-picker"));
+        var picker_font = new CP(document.getElementById("warna-font"));
+        // picker.on("change", function(color) {
+        //     this.target.value = '#' + color;
+        //     $("#warna-font").css({"background":"#" +color});
+        // });
+        picker_font.on("change", function(color) {
+            document.getElementById("color-picker").value = '#' + color;
+            $("#warna-font").css({"background":"#" +color});
         });
     </script>
     <script>
@@ -132,12 +159,12 @@
 
             function init() {
                 
-                ctx.strokeStyle = '#00f'; // Warna Biru
-                ctx.lineWidth = 5;
+                // ctx.strokeStyle = '#00f'; // Warna Biru
+                // ctx.lineWidth = 5;
 
-                ctx.strokeRect(10,10,10,10);
-                ctx.fill();
-                ctx.stroke();
+                // ctx.strokeRect(10,10,10,10);
+                // ctx.fill();
+                // ctx.stroke();
             }
 
             $('#canvas')
